@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Laboratorio interactivo para practicar variables aleatorias, distribuciones discretas y continuas, Teorema Central del Límite y números índices.">
+  <meta name="theme-color" content="#f7f7f4">
+  <title>Estadística · Laboratorio de práctica</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f6b57'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23fff' text-anchor='middle'%3E%CE%A3%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#" data-nav="home" aria-label="Estadística, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">Σ</span>
+        <span class="brand-text">
+          <strong>Estadística</strong>
+          <span>laboratorio de práctica</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <button type="button" class="nav-link is-active" data-nav="home">Inicio</button>
+        <button type="button" class="nav-link" data-nav="progress">Progreso</button>
+        <button type="button" class="nav-link" data-nav="formulas">Fórmulas</button>
+        <button type="button" class="nav-link" data-nav="tools">Calculadoras</button>
+      </nav>
+
+      <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Activar tema oscuro" title="Cambiar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== INICIO ============================== -->
+    <section id="view-home" class="view">
+      <div class="wrap">
+        <div class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-dot"></span>Práctica interactiva · Estadística</p>
+            <h1>Dominá la estadística,<br><em>una pregunta a la vez.</em></h1>
+            <p class="hero-lead">
+              Variables aleatorias, distribuciones, Teorema Central del Límite y números índices.
+              Explicaciones paso a paso, progreso guardado y calculadoras para comprobar tus resultados.
+            </p>
+            <div class="hero-actions">
+              <button type="button" class="btn btn-primary" id="heroStart">
+                Empezar a practicar
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
+              </button>
+              <button type="button" class="btn btn-ghost" data-nav="formulas">Ver formulario</button>
+            </div>
+            <p class="hero-meta">
+              <span>108 preguntas</span>
+              <span>6 temas</span>
+              <span>Sin registro</span>
+            </p>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="chart-card">
+              <div class="chart-head">
+                <div>
+                  <span class="chart-eyebrow">Distribución binomial</span>
+                  <h2>X ~ Bin(10; 0,4)</h2>
+                </div>
+                <span class="chart-pill">μ = 4</span>
+              </div>
+              <div class="bars">
+                <div class="bar" style="--h:2.4%"><span></span></div>
+                <div class="bar" style="--h:16.1%"><span></span></div>
+                <div class="bar" style="--h:48.2%"><span></span></div>
+                <div class="bar" style="--h:85.7%"><span></span></div>
+                <div class="bar is-peak" style="--h:100%"><span></span></div>
+                <div class="bar" style="--h:80%"><span></span></div>
+                <div class="bar" style="--h:44.5%"><span></span></div>
+                <div class="bar" style="--h:16.9%"><span></span></div>
+                <div class="bar" style="--h:4.2%"><span></span></div>
+                <div class="bar" style="--h:0.6%"><span></span></div>
+                <div class="bar" style="--h:0.1%"><span></span></div>
+              </div>
+              <div class="bar-labels">
+                <span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              </div>
+              <div class="chart-foot">
+                <span>La altura de cada barra es P(X = x)</span>
+                <span class="chart-legend"><i></i>valor más probable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <section class="builder" aria-labelledby="builderTitle">
+          <div class="builder-copy">
+            <p class="kicker">Sesión a medida</p>
+            <h2 id="builderTitle">Armá tu práctica</h2>
+            <p>Elegí el modo, el tema y cuántas preguntas querés resolver.</p>
+          </div>
+          <div class="builder-controls">
+            <div class="field">
+              <span class="field-label" id="modeLabel">Modo</span>
+              <div class="segmented" id="modeGroup" role="group" aria-labelledby="modeLabel">
+                <button type="button" data-mode="practice" class="is-active" aria-pressed="true">Práctica</button>
+                <button type="button" data-mode="exam" aria-pressed="false">Examen</button>
+              </div>
+            </div>
+            <label class="field field-select">
+              <span class="field-label">Tema</span>
+              <select id="topicSelect"></select>
+            </label>
+            <div class="field">
+              <span class="field-label" id="countLabel">Preguntas</span>
+              <div class="segmented" id="countGroup" role="group" aria-labelledby="countLabel">
+                <button type="button" data-count="10" class="is-active" aria-pressed="true">10</button>
+                <button type="button" data-count="20" aria-pressed="false">20</button>
+                <button type="button" data-count="all" aria-pressed="false">Todas</button>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary builder-start" id="startSession">
+              Comenzar
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"></path></svg>
+            </button>
+          </div>
+        </section>
+
+        <section id="reviewCallout" class="review-callout" hidden>
+          <div class="review-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v5h5"></path></svg>
+          </div>
+          <div class="review-text">
+            <h3>Tenés preguntas para repasar</h3>
+            <p id="reviewText">Las preguntas que fallaste quedan guardadas acá.</p>
+          </div>
+          <button type="button" class="btn btn-soft" id="reviewStart">Repasar fallos</button>
+        </section>
+
+        <section class="topics-section" aria-labelledby="topicsTitle">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Contenidos</p>
+              <h2 id="topicsTitle">Seis temas, una sola herramienta</h2>
+            </div>
+            <p class="section-note">Basado en Anderson, <em>Estadística para negocios y economía</em>, capítulos V, VI, VII y XX.</p>
+          </div>
+          <div id="topicGrid" class="topic-grid"></div>
+        </section>
+
+        <section class="how" aria-labelledby="howTitle">
+          <div class="section-head">
+            <div>
+              <p class="kicker">Cómo funciona</p>
+              <h2 id="howTitle">Practicar, entender, volver</h2>
+            </div>
+          </div>
+          <div class="how-grid">
+            <article class="how-item">
+              <span class="how-num">01</span>
+              <h3>Respondé</h3>
+              <p>Preguntas de opción múltiple y de cálculo numérico, con niveles de dificultad.</p>
+            </article>
+            <article class="how-item">
+              <span class="how-num">02</span>
+              <h3>Entendé el porqué</h3>
+              <p>Cada respuesta trae la resolución, la fórmula aplicada y el error frecuente.</p>
+            </article>
+            <article class="how-item">
+              <span class="how-num">03</span>
+              <h3>Medí tu avance</h3>
+              <p>El progreso queda en tu navegador. Los fallos vuelven en el modo repaso.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- ============================== QUIZ ================================ -->
+    <section id="view-quiz" class="view" hidden>
+      <div class="wrap quiz-shell">
+        <div class="quiz-top">
+          <button type="button" class="link-btn" data-action="exit">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10H3M8 5l-5 5 5 5"></path></svg>
+            Salir
+          </button>
+          <div class="quiz-meta">
+            <span id="quizTopic">Tema</span>
+            <span class="meta-dot" aria-hidden="true"></span>
+            <span id="quizMode">Práctica</span>
+          </div>
+          <div class="quiz-timer" id="quizTimer" aria-label="Tiempo transcurrido">00:00</div>
+        </div>
+
+        <div class="quiz-progress">
+          <div class="progress-head">
+            <span id="quizCounter">Pregunta 1 de 10</span>
+            <div class="quiz-chips">
+              <span class="chip" id="scoreChip">0 pts</span>
+              <span class="chip" id="streakChip">Racha 0</span>
+            </div>
+          </div>
+          <div class="track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quizTrack">
+            <div class="track-fill" id="quizBar"></div>
+          </div>
+        </div>
+
+        <div id="quizCard" class="quiz-card" tabindex="-1"></div>
+      </div>
+    </section>
+
+    <!-- ============================= RESULTADOS =========================== -->
+    <section id="view-results" class="view" hidden>
+      <div class="wrap" id="resultsContent"></div>
+    </section>
+
+    <!-- ============================= PROGRESO ============================= -->
+    <section id="view-progress" class="view" hidden>
+      <div class="wrap" id="progressContent"></div>
+    </section>
+
+    <!-- ============================= FÓRMULAS ============================= -->
+    <section id="view-formulas" class="view" hidden>
+      <div class="wrap" id="formulasContent"></div>
+    </section>
+
+    <!-- =========================== CALCULADORAS =========================== -->
+    <section id="view-tools" class="view" hidden>
+      <div class="wrap">
+        <div class="page-head">
+          <p class="kicker">Herramientas</p>
+          <h1>Calculadoras</h1>
+          <p class="page-lead">Comprobá tus resultados con las mismas fórmulas que usa el juego. Los valores se recalculan mientras escribís.</p>
+        </div>
+
+        <div class="tools-grid">
+          <article class="tool" id="calcBinomial">
+            <header class="tool-head">
+              <div>
+                <span class="tool-tag">Discreta</span>
+                <h2>Binomial</h2>
+              </div>
+              <span class="tool-formula">C(n,x)pˣ(1−p)ⁿ⁻ˣ</span>
+            </header>
+            <div class="tool-fields">
+              <label class="input-field"><span>n · ensayos</span><input type="number" id="binN" value="10" min="1" max="300" step="1"></label>
+              <label class="input-field"><span>p · éxito</span><input type="number" id="binP" value="0.4" min="0" max="1" step="0.01"></label>
+              <label class="input-field"><span>k · éxitos</span><input type="number" id="binK" value="4" min="0" max="300" step="1"></label>
+            </div>
+            <dl class="tool-results">
+              <div><dt>P(X = k)</dt><dd id="binPk">—</dd></div>
+              <div><dt>P(X ≤ k)</dt><dd id="binPle">—</dd></div>
+              <div><dt>P(X ≥ k)</dt><dd id="binPge">—</dd></div>
+              <div><dt>Media · σ</dt><dd id="binStats">—</dd></div>
+            </dl>
+            <p class="tool-note" id="binNote"></p>
+          </article>
+
+          <article class="tool" id="calcPoisson">
+            <header class="tool-head">
+              <div>
+                <span class="tool-tag">Discreta</span>
+                <h2>Poisson</h2>
+              </div>
+              <span class="tool-formula">e⁻λ λˣ / x!</span>
+            </header>
+            <div class="tool-fields">
+              <label class="input-field"><span>λ · tasa media</span><input type="number" id="poiL" value="3" min="0.01" max="200" step="0.01"></label>
+              <label class="input-field"><span>k · eventos</span><input type="number" id="poiK" value="2" min="0" max="200" step="1"></label>
+            </div>
+            <dl class="tool-results">
+              <div><dt>P(X = k)</dt><dd id="poiPk">—</dd></div>
+              <div><dt>P(X ≤ k)</dt><dd id="poiPle">—</dd></div>
+              <div><dt>P(X ≥ k)</dt><dd id="poiPge">—</dd></div>
+              <div><dt>Media · σ</dt><dd id="poiStats">—</dd></div>
+            </dl>
+            <p class="tool-note" id="poiNote"></p>
+          </article>
+
+          <article class="tool" id="calcNormal">
+            <header class="tool-head">
+              <div>
+                <span class="tool-tag">Continua</span>
+                <h2>Normal</h2>
+              </div>
+              <span class="tool-formula">z = (x − μ) / σ</span>
+            </header>
+            <div class="tool-fields">
+              <label class="input-field"><span>μ · media</span><input type="number" id="norMu" value="100" step="0.01"></label>
+              <label class="input-field"><span>σ · desvío</span><input type="number" id="norSigma" value="15" min="0.01" step="0.01"></label>
+              <label class="input-field input-field-wide"><span>Probabilidad</span>
+                <select id="norMode">
+                  <option value="le">P(X ≤ x)</option>
+                  <option value="ge">P(X ≥ x)</option>
+                  <option value="between">P(a ≤ X ≤ b)</option>
+                </select>
+              </label>
+              <label class="input-field"><span id="norXLabel">x</span><input type="number" id="norX" value="115" step="0.01"></label>
+              <label class="input-field" id="norBWrap" hidden><span>b</span><input type="number" id="norB" value="120" step="0.01"></label>
+            </div>
+            <dl class="tool-results">
+              <div><dt>Resultado</dt><dd id="norResult">—</dd></div>
+              <div><dt>Valor(es) z</dt><dd id="norZ">—</dd></div>
+            </dl>
+            <p class="tool-note" id="norNote"></p>
+          </article>
+
+          <article class="tool tool-wide" id="calcIndices">
+            <header class="tool-head">
+              <div>
+                <span class="tool-tag">Índices</span>
+                <h2>Laspeyres y Paasche</h2>
+              </div>
+              <span class="tool-formula">base 100</span>
+            </header>
+            <div class="index-table-wrap">
+              <table class="index-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Producto</th>
+                    <th scope="col">p₀</th>
+                    <th scope="col">q₀</th>
+                    <th scope="col">p₁</th>
+                    <th scope="col">q₁</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">A</th>
+                    <td><input type="number" class="idx" data-p="p0" data-row="0" value="2" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q0" data-row="0" value="10" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="p1" data-row="0" value="3" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q1" data-row="0" value="8" step="0.01"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">B</th>
+                    <td><input type="number" class="idx" data-p="p0" data-row="1" value="5" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q0" data-row="1" value="4" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="p1" data-row="1" value="6" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q1" data-row="1" value="5" step="0.01"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">C</th>
+                    <td><input type="number" class="idx" data-p="p0" data-row="2" value="0" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q0" data-row="2" value="0" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="p1" data-row="2" value="0" step="0.01"></td>
+                    <td><input type="number" class="idx" data-p="q1" data-row="2" value="0" step="0.01"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <dl class="tool-results tool-results-grid">
+              <div><dt>Precios · Laspeyres</dt><dd id="idxLP">—</dd></div>
+              <div><dt>Precios · Paasche</dt><dd id="idxPP">—</dd></div>
+              <div><dt>Cantidades · Laspeyres</dt><dd id="idxLQ">—</dd></div>
+              <div><dt>Cantidades · Paasche</dt><dd id="idxPQ">—</dd></div>
+              <div><dt>Valor</dt><dd id="idxV">—</dd></div>
+            </dl>
+            <p class="tool-note" id="idxNote">Completá solo los productos que quieras incluir; las filas en cero no afectan el resultado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark brand-mark-sm" aria-hidden="true">Σ</span>
+        <p>Estadística · Laboratorio de práctica</p>
+      </div>
+      <p class="footer-note">Contenidos basados en Anderson, <em>Estadística para negocios y economía</em>, cap. V, VI, VII y XX. Progreso guardado localmente en tu navegador.</p>
+    </div>
+  </footer>
+
+  <dialog id="appDialog" class="dialog" aria-labelledby="dialogTitle"></dialog>
+
+  <noscript>
+    <p style="padding:2rem;text-align:center">Este laboratorio necesita JavaScript para funcionar.</p>
+  </noscript>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
