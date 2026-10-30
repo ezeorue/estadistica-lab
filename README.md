@@ -1,5 +1,7 @@
 # Estadística · Laboratorio de práctica
 
+**Sitio publicado:** https://ezeorue.github.io/estadistica-lab/
+
 Aplicación web interactiva para practicar los temas centrales de un curso de estadística para negocios y economía. Funciona enteramente en el navegador: no necesita backend, registro ni instalación.
 
 **Contenidos:** variables aleatorias discretas y continuas, funciones de probabilidad y densidad, Bernoulli, binomial, hipergeométrica, Poisson, uniforme, normal y normal estándar, sumas de variables aleatorias, Teorema Central del Límite, propiedades de media y varianza, covarianza y números índices (Laspeyres, Paasche, IPC e inflación).
